@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="/static/dist/img/icon.png" type="image/x-icon">
+    <title>XBMAN-运维管理系统-统一登录页</title>
+    <!-- Bootstrap Core CSS -->
+    <link href="/static/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <!-- MetisMenu CSS -->
+    <link href="/static/vendor/metisMenu/metisMenu.min.css" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link href="/static/dist/css/sb-admin-2.css" rel="stylesheet">
+    <!-- Custom Fonts -->
+    <link href="/static/vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="/static/vendor/bootstrap/css/bootstrapValidator.min.css" rel="stylesheet">
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+
+<body>
+    <div class="container">
+        <div class="row">
+        	<div class="col-md-12" style="margin:0 auto; text-align:center;">
+                	<img src="/static/dist/img/logo.png" />
+                </div>
+            <div class="col-md-4 col-md-offset-4">
+                <div class="login-panel panel panel-default" style="margin-top: 5%">
+                    <div class="panel-heading">
+                        <h3 class="panel-title" style="text-align:center;">欢 迎 使 用</h3>
+                    </div>
+                    <div class="panel-body">
+                        <form id="loginForm" role="form" action="" method="POST">{% csrf_token %}
+                            <fieldset>
+                                <div class="form-group">
+                                    {{ form.email}}
+                                </div>
+                                <div class="form-group">
+                                    {{ form.password}}
+                                </div>
+                                <div class="form-group">
+                                    <input class="form-control" style="width: 50%;display: inline-block" placeholder="验证码" name="code" type="text" value="">
+                                    <img class="" id="check_code_img" src="{% url 'create_code' %}" style="cursor:pointer;width: 40%;display: inline-block;margin: 0 10px 0 10px;float: right" onclick="refresh_check_code(this)">
+                                </div>
+                                <h6 style="color: red;" align="center"><b>{{ login_err }}</b></h6>
+                                <button class="btn btn-lg btn-success btn-block" type="submit">
+                                    <span>登 录</span>
+						        </button>
+                            </fieldset>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="/static/vendor/jquery/jquery.min.js"></script>
+    <script src="/static/vendor/bootstrap/js/bootstrap.min.js"></script>
+    <script src="/static/vendor/metisMenu/metisMenu.min.js"></script>
+    <script src="/static/dist/js/sb-admin-2.js"></script>
+<script src="/static/vendor/bootstrap/js/bootstrapValidator.min.js"></script>
+<script src="/static/dist/js/login.js"></script>
+</body>
+</html>
